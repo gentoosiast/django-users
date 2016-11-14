@@ -1,0 +1,8 @@
+{% extends "form.html" %}
+{% block title %}Login{% endblock %}
+{% block before-content %}
+<h1 class="text-center">Login page</h1>
+<p>Please enter your username and password to login</p>
+{% endblock %}
+{% block post-url %}{% url 'login' %}{% endblock %}
+{% block submit-name %}Login{% endblock %}

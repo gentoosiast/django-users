@@ -1,0 +1,8 @@
+{% extends "form.html" %}
+{% block title %}Signup{% endblock %}
+{% block before-content %}
+<h1 class="text-center">Signup page</h1>
+<p>Please enter username, email address and password to register the new user.</p>
+{% endblock %}
+{% block post-url %}{% url 'signup' %}{% endblock %}
+{% block submit-name %}Signup{% endblock %}

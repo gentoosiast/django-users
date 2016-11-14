@@ -1,0 +1,6 @@
+{% extends "form.html" %}
+{% block title %}Ask a Question{% endblock %}
+{% block before-content %}
+  <h1 class="text-center">Ask a question:</h1>
+{% endblock %}
+{% block post-url %}{% url 'ask-question' %}{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "form.html" %}
+{% block title %}Question Details{% endblock %}
+{% block before-content %}
+  <h1 class="text-center">Question details</h1>
+  <h2>{{ question }}</h1>
+  <p>{{ question.text }}</p>
+  <ul>
+  <h1 class="text-center">Answers:</h2>
+  {% for answer in answers %}
+    <li><p>{{ answer.text }}</p></li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+{% block post-url %}{% url 'post-answer' %}{% endblock %}
