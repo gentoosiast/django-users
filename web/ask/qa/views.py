@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET, require_POST
 from django.http import HttpResponseRedirect
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login, logout
 from qa.models import Question
 from qa.forms import AskForm, AnswerForm, LoginForm, SignupForm
 
@@ -125,8 +125,12 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return HttpResponseRedirect(url)
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None and user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(url)
     else:
         form = SignupForm()
 
